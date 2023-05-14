@@ -1,0 +1,48 @@
+#define function file io
+#To define function, you need to have colon after it and indent all the lines under
+#function below contains variable fav
+def favColor(fav):
+    print("favorite color = " + fav)
+
+def square(num):
+    return num*num
+def fileIO():
+
+    again = True
+    #line below states writeFile name and 'w' means we're writing to file not reading to file
+    writeFile = open('live.txt', 'w')
+    while again:
+        newText = input("enter text to write to a file")
+        #line below will write one line to a file
+        # '/n' means every time I give you new text, I want it on a new line
+        writeFile.write(newText + '\n')
+        cont = input("Do you want to write more? Y/N")
+        # cont upper converts Y and N to uppercase to make sure program continues to run
+        cont = cont.upper()
+        if cont == 'N':
+            again = False
+        #next print outside loop to notify that we are outside loop
+    print("outside loop")
+        #next close write file
+    writeFile.close()
+
+
+    #read entire file to 1 string
+    readFile = open('live.txt', 'r')
+    allText = readFile.read()
+    print(allText)
+    readFile.close()
+
+    #rf2 is new file which means readfileto
+    rf2 = open('live.txt', 'r')
+    #reads each item line by line
+    line = rf2.readline()
+    while line != '':
+        line = rf2.readline()
+        print(line)
+
+#call fileIOfunction
+fileIO()
+favColor('purple')
+sqrof7 = square(7)
+print("square", sqrof7)
